@@ -1,7 +1,7 @@
-## Resume
+### Resume
 
 An HTML based single page resume.
 
-## License
+### License
 
 MIT License.
