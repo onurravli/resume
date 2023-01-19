@@ -1,6 +1,6 @@
 ## Resume
 
-A HTML based single page resume.
+An HTML based single page resume.
 
 ## License
 
