@@ -9,7 +9,6 @@
   left: 0;
   width: 100%;
   height: 200px;
-  background-color: rgba(0, 255, 0, 0.5);
 }
 #top-bar #container {
   width: -webkit-max-content;
@@ -64,4 +63,30 @@
 }
 #top-bar #contact a {
   text-decoration: none;
+}
+
+#left-bar {
+  position: fixed;
+  top: 200px;
+  width: 30%;
+  padding: 0 20px;
+}
+#left-bar #education .title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #088db6;
+}
+#left-bar #education .sub {
+  font-size: 20px;
+  padding: 7.5px 0 7.5px 0;
+}
+#left-bar #education .sub .subtitle {
+  font-weight: bold;
+}
+#left-bar #education .sub .desc {
+  text-align: justify;
+}
+#left-bar #education .sub .date {
+  color: #088db6;
+  font-style: italic;
 }/*# sourceMappingURL=style.css.map */
