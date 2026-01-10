@@ -1,9 +1,13 @@
+% !TEX program = xelatex % (can also use "lualatex") 
 \documentclass[10pt,a4paper]{extarticle}
 \pagenumbering{gobble}
+\usepackage{lmodern}
+\usepackage{fontspec}
 \usepackage[left=0.6in,top=0.6in,right=0.6in,bottom=0.6in]{geometry}
 \usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage{datetime}
 \usepackage{graphicx}
 \titleformat{\section}{\large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing*{\section}{0pt}{12pt}{8pt}
@@ -12,6 +16,7 @@
     \begin{minipage}{\textwidth}
         \centering
         {\LARGE\textbf{Onur Ravli}} \hspace{2pt} {\LARGE{Full-Stack Developer}}\\[10pt]
+        {\small\textit{Last updated: \today}}\\[6pt]
         \href{mailto:onur@onurravli.com}{onur@onurravli.com} \textbullet\
         \href{https://onurravli.com}{onurravli.com} \textbullet\
         \href{https://linkedin.com/in/onurravli}{linkedin.com/in/onurravli} \textbullet\
@@ -27,6 +32,7 @@ innovative projects within the tech industry.
 \textbf{\href{https://insiderone.com}{Insider One}. \textit{(Istanbul, Türkiye)}} \hfill Remote\\
 \textit{Software Developer} \hfill July 2025 -- Present
 \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+    \item Use Case Library: Development of both backend and frontend of the Insider One Use Case Library
     \item Task Development and System Contribution: I am responsible for Optimus task development and actively contribute to system development efforts
     \item Code Reviews and Outsourced Task Support: I conduct code reviews and provide essential support for tasks that are outsourced
     \item Project Participation: I participate as a developer in various Optimus projects
@@ -46,8 +52,8 @@ innovative projects within the tech industry.
     \item Frontend development of a dashboard and a control panel for an EV charging station software, Electr-INN, using Next.js, Node.js, and Django.
 \end{itemize}
 \section{Skills}
-\textbf{Programming Languages:} TypeScript, Python, Java\\
-\textbf{Backend Frameworks \& Runtimes:} Node.js, Express.js, Nest.js, Django, Spring Boot\\
+\textbf{Programming Languages:} TypeScript, Go, Python, Java\\
+\textbf{Backend Frameworks \& Runtimes:} Node.js, Express.js, Nest.js, Echo, Django, Spring Boot\\
 \textbf{Frontend Frameworks \& Runtimes:} React.js, React Native, Next.js\\
 \textbf{Databases:} MongoDB, PostgreSQL, MySQL, Redis\\
 \textbf{Other:} Git, RestAPI, GraphQL, Docker, Docker Compose, Amazon EC2, Amazon Lambda, Joi, Axios, Jest, Postman, Swagger
