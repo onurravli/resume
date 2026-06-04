@@ -1,0 +1,62 @@
+name: Tex to PDF (Backend Developer)
+run-name: ${{ github.workflow }}
+
+on:
+  push:
+    paths:
+      - "resume-backend-developer.tex"
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TeXLive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended
+
+      - name: Compile LaTeX to PDF
+        run: |
+          pdflatex -jobname=Onur_Ravli_Backend_Developer_Resume resume-backend-developer.tex
+
+      - name: Commit and push PDF
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --local user.name "${{ github.actor }}"
+          git add Onur_Ravli_Backend_Developer_Resume.pdf
+          git commit -m "docs: update backend developer resume from automated build" || echo "No changes to commit"
+          git push https://${{ github.actor }}:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
+
+      - name: Push PDFs to onurravli-com repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+
+          # Clone the target repository using PAT
+          git clone https://${{ github.actor }}:${PAT_TOKEN}@github.com/onurravli/onurravli-com.git
+          cd onurravli-com
+
+          # Create public folder if it doesn't exist
+          mkdir -p public
+
+          # Copy PDFs to public folder
+          cp ../Onur_Ravli_Backend_Developer_Resume.pdf public/Onur_Ravli_Backend_Developer_Resume.pdf
+          cp ../Onur_Ravli_Backend_Developer_Resume.pdf public/Onur_Ravli_Backend_Developer_CV.pdf
+
+          # Commit and push to target repository
+          git add public/Onur_Ravli_Backend_Developer_Resume.pdf public/Onur_Ravli_Backend_Developer_CV.pdf
+          git commit -m "docs: update backend developer resume from automated build" || echo "No changes to commit"
+          git push https://${{ github.actor }}:${PAT_TOKEN}@github.com/onurravli/onurravli-com.git master
